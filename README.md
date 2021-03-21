@@ -31,4 +31,4 @@ The 2 scripted installs will deploy the following:
 * kubectl scale --replicas=6 -f mds.yaml //up
 * **sh enable_ds.sh should be run after any scaling action to enable the DS per POD**
 
-![plot](.SDSS.png)
+![SDSS](SDSS.png)
