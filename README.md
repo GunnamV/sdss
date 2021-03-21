@@ -22,8 +22,8 @@ The 2 scripted installs will deploy the following:
 * build_microk8s_1.19.sh -- Microk8s cluster w/ storage, dns & MetalLB addons enabled
 * build_sdss.sh -- A TCP Configmap + MetalLB LoadBalancer Service on default port TCP/32740
     > 2 NFS mounts in RW/Many mode for
-    >> /opt/splunk/etc/apps/sdss_config <- serverclass.conf configurations
-    >> /opt/splunk/etc/deployment-aps <- deployment app configuration data
+    >> --/opt/splunk/etc/apps/sdss_config <- serverclass.conf configurations
+    >>-- /opt/splunk/etc/deployment-aps <- deployment app configuration data
 *!! enable_ds.sh - enables the DS feature on all pods deployed through the CLI - UFS won't connect to the deployed replica nodes until this has been run. 
     
 **Operations -- Replicas can be scaled up/down as needed** 
