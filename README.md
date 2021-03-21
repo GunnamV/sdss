@@ -24,7 +24,7 @@ The 2 scripted installs will deploy the following:
     > 2 NFS mounts in RW/Many mode for
     >> * /opt/splunk/etc/apps/sdss_config <- serverclass.conf configurations
     >> * /opt/splunk/etc/deployment-aps <- deployment app configuration data
-    >> !! * **enable_ds.sh - enables the DS feature on all pods deployed through the CLI - UFS won't connect to the deployed replica nodes until this has been run.**
+    >> * **enable_ds.sh - enables the DS feature on all pods deployed through the CLI - UFS won't connect to the deployed replica nodes until this has been run.**
     
 **Operations -- Replicas can be scaled up/down as needed** 
 * kubectl scale --replicas=0 -f mds.yaml //down
