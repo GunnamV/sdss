@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: splunk
+  name: splunksds
+  labels:
+    app: splunk
+    role: splunksds
+    tier: sds
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunksds
+      tier: sds
+  template:
+    metadata:
+      labels:
+        app: splunk
+        role: splunksds
+        tier: sds 
+    spec:
+      volumes:
+        - name: sdss-config
+          persistentVolumeClaim:
+             claimName: sdss-config
+        - name: sdss-appdata
+          persistentVolumeClaim:
+             claimName: sdss-appdata
+      hostname: sds
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        searches:
+          - sds.splunk.svc.cluster.local
+      containers:
+        - name: splunksds
+          image: splunk/splunk:latest
+#          lifecycle:
+#            postStart:
+#              exec:
+#                command: ["/bin/bash", "-c", "sudo $SPLUNK_HOME/bin/./splunk enable deploy-server -auth admin:$SPLUNK_PASSWORD"]
+          ports:
+           - containerPort: 8089
+             name: splunk
+
+          volumeMounts:
+           - mountPath: /opt/splunk/etc/deployment-apps
+             name: sdss-appdata
+           - mountPath: /opt/splunk/etc/apps/
+             name: sdss-config
+          env:
+            - name: SPLUNK_HOME
+              value: /opt/splunk
+            - name: SPLUNK_ETC
+              value: /opt/splunk/etc
+            - name: SPLUNK_PASSWORD
+              value: changeme123
+            - name: SPLUNK_START_ARGS
+              value: "--accept-license"
