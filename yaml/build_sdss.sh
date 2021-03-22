@@ -7,11 +7,11 @@ kubectl config set-context --current --namespace=splunk
 kubectl apply -f configmap.yaml
 kubectl apply -f lb.yaml
 
-kubectl apply -f pv-appdata.yaml
-kubectl apply -f pvc-appdata.yaml
-kubectl apply -f pv-config.yaml
-kubectl apply -f pvc-config.yaml
+#kubectl apply -f pv-appdata.yaml
+#kubectl apply -f pvc-appdata.yaml
+#kubectl apply -f pv-config.yaml
+#kubectl apply -f pvc-config.yaml
 
 sleep 5s
 
-kubectl apply -f sdss.yaml
+kubectl apply -f sdss_nopvc.yaml

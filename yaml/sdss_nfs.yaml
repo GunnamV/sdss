@@ -24,10 +24,10 @@ spec:
       volumes:
         - name: sdss-config
           persistentVolumeClaim:
-             claimName: sdss-config
+             claimName: nfs-pvc-config
         - name: sdss-appdata
           persistentVolumeClaim:
-             claimName: sdss-appdata
+             claimName: nfs-pvc-appdata
       hostname: sds
       containers:
         - name: splunksds
