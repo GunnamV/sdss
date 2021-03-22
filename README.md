@@ -31,4 +31,11 @@ The 2 scripted installs will deploy the following:
 * kubectl scale --replicas=6 -f mds.yaml //up
 * **sh enable_ds.sh should be run after any scaling action to enable the DS per POD**
 
+Known Issues
+* HA Mode can be enabled on the microk8s cluster but there is a lingering DNS failure to resolve all conatiners across all nodes when trying running the enable_ds.sh script
+>> * available workaround is to run the script across all nodes
+>> * the YAML should have a lifecycle process added to run a post-script configuration and enable the server at build time
+* NFS mount is currently running through a HostPath configuration instead of direct mapping
+>> * this appears to be related to some kind of network/proxy issue and may need an init container and/or NFS service passthru? Needs more investigation
+
 ![SDSS](SDSS.png)
