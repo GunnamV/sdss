@@ -1,7 +1,7 @@
 **Readme Splunk Deployment Server Service** -  Microk8s/Kubernetes cluster strategy + MetalLB
 
 
-This deployment is currently tested with Ubuntu 18.04 using microk8s version 1.19 there are 2 versions 
+This deployment is currently tested with Ubuntu 18.04 using microk8s version 1/18 - > 1.19 there are 2 versions available 
 
 * mdsv1 - complete working single-node deployment using hostMapped paths for app/config data
 * sdssv1 - WIP/POC with NFS mappings for app/config data & HA compatibilities
